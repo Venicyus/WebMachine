@@ -5,9 +5,19 @@ namespace WebMachine {
     class Program {
         static void Main(string[] args) {
 
-            var clients = ClientServices.GetAll();
+            var _servClient = new ClientService();
 
-            GmapsService.GetAddress(clients);
+            var clients = _servClient.Get();
+
+            //foreach (var client in clients) {
+            //    if (client.IsUpdate) {
+                    GmapsService.GetAddress(clients);
+                    
+            //        if (!client.IsUpdate) {
+                        
+            //        }
+            //    }
+            //}
 
             Console.Write("Process concluded");
         }
